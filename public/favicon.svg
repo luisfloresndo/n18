@@ -1,0 +1,10 @@
+<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="120" fill="#1A1208"/>
+<g fill="none" stroke="#C9A84C" stroke-width="3">
+<path d="M 8,8 L 92,8 L 92,68 Q 92,96 50,112 Q 8,96 8,68 Z"/>
+<rect x="16" y="16" width="68" height="28"/>
+<line x1="16" y1="44" x2="84" y2="44"/><line x1="16" y1="52" x2="84" y2="52"/>
+<line x1="16" y1="65" x2="84" y2="65"/><line x1="16" y1="78" x2="77" y2="78"/>
+</g>
+<text x="50" y="37" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="600" fill="#C9A84C" letter-spacing="2">XVIII</text>
+</svg>

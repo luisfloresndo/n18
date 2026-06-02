@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/* ─── DESIGN TOKENS · Notaría No. 18 (oro sobre tinta) ─── */
+@theme {
+  --color-gold-50: #fdf8ee;
+  --color-gold-100: #f5e9c8;
+  --color-gold-200: #e8cc89;
+  --color-gold-400: #c9a84c;
+  --color-gold-600: #a8873a;
+  --color-gold-800: #6b5420;
+  --color-gold-900: #3d2f0e;
+  --color-ink: #1a1208;
+  --color-ink-deep: #0a0a0a;
+  --color-cream: #faf6ec;
+  --color-cream-dark: #f0e8d0;
+  --color-warm-white: #fefcf7;
+  --color-charcoal: #2c2416;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+
+  --shadow-glow-gold: 0 0 0 1px rgba(201, 168, 76, 0.4),
+    0 8px 32px rgba(201, 168, 76, 0.12);
+}
+
+/* ─── BASE ─── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-gold-400);
+    color: var(--color-ink);
+  }
+}
+
+/* Respeta usuarios con movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important; /* desactiva animación para a11y */
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Grain de pergamino sutil sobre la tinta (SVG filter, mejor perf que CSS filter) */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

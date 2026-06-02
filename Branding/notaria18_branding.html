@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notaría No. 18 — Brand Identity System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold-50: #FDF8EE;
+    --gold-100: #F5E9C8;
+    --gold-200: #E8CC89;
+    --gold-400: #C9A84C;
+    --gold-600: #A8873A;
+    --gold-800: #6B5420;
+    --gold-900: #3D2F0E;
+    --ink: #1A1208;
+    --cream: #FAF6EC;
+    --cream-dark: #F0E8D0;
+    --warm-white: #FEFCF7;
+    --charcoal: #2C2416;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    height: 100vh;
+    min-height: 700px;
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(169,135,58,0.06) 0%, transparent 70%);
+  }
+
+  .cover-ornament {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+
+  .cover-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--gold-400);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    opacity: 0.7;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 300;
+    color: var(--gold-200);
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--gold-400);
+  }
+
+  .cover-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+    margin: 32px auto;
+  }
+
+  .cover-sub {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--gold-600);
+    text-transform: uppercase;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    padding: 100px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    padding: 100px 80px;
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .section-full .section {
+    padding: 0;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--gold-600);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: var(--gold-200);
+    margin-bottom: 64px;
+    line-height: 1.1;
+  }
+
+  .section-full .section-title {
+    color: var(--gold-800);
+  }
+
+  /* ─── LOGO SHOWCASE ─── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 64px;
+  }
+
+  .logo-card {
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    min-height: 280px;
+  }
+
+  .logo-card-light { background: var(--warm-white); }
+  .logo-card-dark  { background: var(--ink); }
+  .logo-card-gold  { background: var(--gold-400); }
+  .logo-card-cream { background: var(--cream-dark); }
+
+  .logo-usage-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .logo-card-light .logo-usage-label,
+  .logo-card-cream .logo-usage-label { color: var(--gold-800); }
+  .logo-card-dark .logo-usage-label { color: var(--gold-600); }
+  .logo-card-gold .logo-usage-label { color: var(--gold-900); }
+
+  /* ─── INLINE LOGO SVG ─── */
+  .logo-svg-wrap {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* ─── COLOR PALETTE ─── */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .swatch {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12px;
+  }
+
+  .swatch-name {
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .swatch-hex {
+    font-size: 9px;
+    font-family: 'Courier New', monospace;
+    opacity: 0.7;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .type-specimen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 80px;
+  }
+
+  .type-block {}
+
+  .type-tag {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold-600);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .type-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--gold-800);
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .type-display em {
+    font-style: italic;
+    color: var(--gold-600);
+  }
+
+  .type-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gold-800);
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+
+  .type-body-demo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--charcoal);
+    letter-spacing: 0.3px;
+  }
+
+  .type-heading-demo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-800);
+    margin-bottom: 12px;
+  }
+
+  .type-caption-demo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-600);
+  }
+
+  /* ─── STATIONERY ─── */
+  .stationery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  /* Business Card */
+  .biz-card {
+    aspect-ratio: 1.75;
+    background: var(--ink);
+    border-radius: 6px;
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  }
+
+  .biz-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  }
+
+  .biz-card-back {
+    background: var(--gold-400);
+  }
+
+  .biz-card-back::after {
+    background: var(--gold-900);
+  }
+
+  .biz-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+
+  .biz-title {
+    font-size: 7.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-400);
+    margin-top: 4px;
+  }
+
+  .biz-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .biz-info-line {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: var(--gold-600);
+    font-weight: 300;
+  }
+
+  /* Letterhead */
+  .letterhead {
+    background: var(--warm-white);
+    border-radius: 4px;
+    padding: 40px 48px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+
+  .letterhead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--gold-200);
+    margin-bottom: 24px;
+  }
+
+  .letterhead-contact {
+    text-align: right;
+  }
+
+  .letterhead-contact-line {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--gold-600);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .letterhead-body {
+    font-size: 11px;
+    line-height: 1.9;
+    color: var(--charcoal);
+    font-weight: 300;
+  }
+
+  .letterhead-body p { margin-bottom: 10px; }
+
+  .letterhead-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 0.5px solid var(--gold-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .letterhead-footer-text {
+    font-size: 7px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-400);
+  }
+
+  /* ─── DIGITAL ─── */
+  .digital-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  /* Email signature */
+  .email-sig {
+    background: var(--warm-white);
+    border-radius: 4px;
+    padding: 28px 32px;
+    border-left: 3px solid var(--gold-400);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .sig-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .sig-role {
+    font-size: 8.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-600);
+    margin-bottom: 14px;
+  }
+
+  .sig-divider {
+    height: 0.5px;
+    background: var(--gold-200);
+    margin-bottom: 14px;
+  }
+
+  .sig-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sig-info-line {
+    font-size: 9px;
+    color: var(--charcoal);
+    letter-spacing: 0.5px;
+    font-weight: 300;
+  }
+
+  .sig-info-line strong {
+    color: var(--gold-600);
+    font-weight: 500;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-right: 8px;
+  }
+
+  /* Sello / Stamp */
+  .stamp-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #f4edd8;
+    border-radius: 4px;
+  }
+
+  /* ─── PATTERNS ─── */
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 80px;
+  }
+
+  .pattern-block {
+    height: 180px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pattern-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ─── WEB MOCKUP ─── */
+  .web-mockup {
+    background: var(--ink);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    margin-bottom: 80px;
+  }
+
+  .browser-bar {
+    height: 36px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .browser-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  .browser-url {
+    flex: 1;
+    margin: 0 16px;
+    background: rgba(255,255,255,0.06);
+    height: 22px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+  }
+
+  .browser-url-text {
+    font-size: 9px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+  }
+
+  .web-nav {
+    background: rgba(255,255,255,0.02);
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .web-nav-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .web-nav-link {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.5);
+    cursor: pointer;
+  }
+
+  .web-nav-link.active {
+    color: var(--gold-400);
+    border-bottom: 1px solid var(--gold-400);
+    padding-bottom: 2px;
+  }
+
+  .web-hero {
+    padding: 80px 80px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .web-hero-eyebrow {
+    font-size: 8px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-400);
+    margin-bottom: 20px;
+  }
+
+  .web-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+
+  .web-hero-title em {
+    font-style: italic;
+    color: var(--gold-200);
+  }
+
+  .web-hero-body {
+    font-size: 11px;
+    line-height: 1.9;
+    color: rgba(240,232,208,0.5);
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+
+  .web-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--gold-400);
+    color: var(--gold-400);
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .web-btn:hover {
+    background: var(--gold-400);
+    color: var(--ink);
+  }
+
+  .web-hero-img {
+    aspect-ratio: 0.85;
+    background: rgba(201,168,76,0.04);
+    border: 0.5px solid rgba(201,168,76,0.15);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ─── SERVICES CARDS ─── */
+  .services-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .service-card {
+    background: var(--ink);
+    padding: 32px 24px;
+  }
+
+  .service-icon {
+    font-size: 20px;
+    color: var(--gold-600);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .service-name {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-400);
+    margin-bottom: 6px;
+  }
+
+  .service-desc {
+    font-size: 9px;
+    line-height: 1.7;
+    color: rgba(240,232,208,0.3);
+    font-weight: 300;
+  }
+
+  /* ─── COLORS SECTION ─── */
+  .color-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .color-chip {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .color-chip-swatch {
+    height: 80px;
+  }
+
+  .color-chip-info {
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(255,255,255,0.06);
+    border-top: none;
+  }
+
+  .color-chip-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 2px;
+  }
+
+  .color-chip-hex {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--gold-600);
+    letter-spacing: 1px;
+  }
+
+  .color-chip-use {
+    font-size: 9px;
+    color: rgba(240,232,208,0.35);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* ─── ENVELOPE ─── */
+  .envelope-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background: #d9cdb0;
+    border-radius: 4px;
+  }
+
+  .envelope {
+    width: 400px;
+    background: var(--cream);
+    padding: 40px 48px 48px;
+    border-radius: 2px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    position: relative;
+  }
+
+  .envelope::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-400), var(--gold-600), var(--gold-400));
+  }
+
+  .envelope-return {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: var(--gold-600);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .envelope-to-label {
+    font-size: 7px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-400);
+    margin-bottom: 8px;
+  }
+
+  .envelope-to {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .envelope-addr {
+    font-size: 10px;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin-top: 6px;
+    font-weight: 300;
+  }
+
+  /* ─── SECTION DIVIDER ─── */
+  .divider-rule {
+    border: none;
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    margin: 0;
+  }
+
+  /* ─── SECTION DARK BG ─── */
+  .bg-ink { background: var(--ink); }
+  .bg-cream { background: var(--cream); color: var(--ink); }
+  .bg-ink .section-title { color: var(--gold-200); }
+  .bg-cream .section-title { color: var(--gold-800); }
+  .bg-ink .section-label { color: var(--gold-600); }
+  .bg-cream .section-label { color: var(--gold-600); }
+
+  .page-num {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: rgba(201,168,76,0.25);
+    text-align: right;
+    padding: 20px 80px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ COVER ═══════════════════════════════ -->
+<div class="cover">
+  <svg class="cover-ornament" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+    <!-- Corner filigree top-left -->
+    <g opacity="0.08" stroke="#C9A84C" fill="none" stroke-width="0.5">
+      <path d="M 0,0 L 160,0 M 0,0 L 0,160"/>
+      <path d="M 20,0 L 20,60 Q 20,80 40,80 L 100,80"/>
+      <path d="M 0,20 L 60,20 Q 80,20 80,40 L 80,100"/>
+      <rect x="8" y="8" width="24" height="24" rx="1"/>
+      <circle cx="140" cy="140" r="20"/>
+      <path d="M 130,140 L 150,140 M 140,130 L 140,150"/>
+    </g>
+    <!-- Corner filigree bottom-right -->
+    <g opacity="0.08" stroke="#C9A84C" fill="none" stroke-width="0.5" transform="rotate(180,700,450)">
+      <path d="M 0,0 L 160,0 M 0,0 L 0,160"/>
+      <path d="M 20,0 L 20,60 Q 20,80 40,80 L 100,80"/>
+      <path d="M 0,20 L 60,20 Q 80,20 80,40 L 80,100"/>
+      <rect x="8" y="8" width="24" height="24" rx="1"/>
+      <circle cx="140" cy="140" r="20"/>
+    </g>
+    <!-- Central decorative ring -->
+    <g opacity="0.04" stroke="#C9A84C" fill="none">
+      <circle cx="700" cy="450" r="280" stroke-width="0.5"/>
+      <circle cx="700" cy="450" r="300" stroke-width="0.25"/>
+      <circle cx="700" cy="450" r="260" stroke-width="0.25" stroke-dasharray="4 8"/>
+    </g>
+    <!-- Roman numeral ornaments -->
+    <text x="700" y="120" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" fill="#C9A84C" opacity="0.12" letter-spacing="12">XVIII · NOTARÍA · NO. 18</text>
+    <text x="700" y="800" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" fill="#C9A84C" opacity="0.12" letter-spacing="12">XVIII · NOTARÍA · NO. 18</text>
+  </svg>
+
+  <p class="cover-label">Manual de Identidad</p>
+
+  <!-- Logo SVG inline -->
+  <svg width="480" height="120" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+    <!-- Shield -->
+    <g fill="none" stroke="#C9A84C" stroke-width="2.5">
+      <!-- Outer shield -->
+      <path d="M 12,8 L 88,8 L 88,68 Q 88,92 50,108 Q 12,92 12,68 Z"/>
+      <!-- Top rectangle inside -->
+      <rect x="18" y="14" width="64" height="26" rx="0"/>
+      <!-- Horizontal bars -->
+      <line x1="18" y1="48" x2="82" y2="48"/>
+      <line x1="18" y1="60" x2="82" y2="60"/>
+      <line x1="18" y1="72" x2="76" y2="72"/>
+      <!-- Shield base divider (inner horizontal) -->
+      <line x1="18" y1="40" x2="82" y2="40"/>
+    </g>
+    <!-- XVIII text inside shield -->
+    <text x="50" y="33" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600" fill="#C9A84C" letter-spacing="2">XVIII</text>
+
+    <!-- Divider line -->
+    <line x1="108" y1="12" x2="108" y2="108" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- NOTARÍA text -->
+    <text x="148" y="50" font-family="Montserrat, sans-serif" font-size="22" font-weight="700" fill="#C9A84C" letter-spacing="4">NOTARÍA</text>
+
+    <!-- Nº 18 text -->
+    <text x="148" y="97" font-family="Montserrat, sans-serif" font-size="42" font-weight="700" fill="#C9A84C" letter-spacing="2">Nº 18</text>
+  </svg>
+
+  <div class="cover-divider"></div>
+  <p class="cover-sub">Sistema de Identidad Visual · 2025</p>
+</div>
+
+<!-- ═══════════════════════════════ INTRO ═══════════════════════════════ -->
+<div class="bg-ink">
+  <div class="section">
+    <p class="section-label">Fundamentos</p>
+    <h2 class="section-title" style="max-width:600px">Una identidad forjada<br><em style="font-family:'Cormorant Garamond',serif;font-style:italic">en autoridad y confianza.</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px">
+      <div>
+        <p style="font-size:13px;line-height:2;color:rgba(240,232,208,0.55);font-weight:300;margin-bottom:24px">La Notaría No. 18 es una institución de fe pública cuya identidad visual debe comunicar solemnidad, precisión y permanencia. Cada elemento del sistema ha sido diseñado para reflejar el peso legal e histórico del cargo notarial.</p>
+        <p style="font-size:13px;line-height:2;color:rgba(240,232,208,0.55);font-weight:300">El escudo heráldico, las numeraciones romanas y la paleta dorada sobre negro establecen un lenguaje visual que conecta con la tradición jurídica mientras proyecta modernidad y accesibilidad.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="border-left:2px solid var(--gold-400);padding-left:20px">
+          <p style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);margin-bottom:6px">Valores de Marca</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream)">Autoridad · Confianza · Precisión</p>
+        </div>
+        <div style="border-left:2px solid rgba(201,168,76,0.3);padding-left:20px">
+          <p style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);margin-bottom:6px">Tono de Comunicación</p>
+          <p style="font-size:13px;color:rgba(240,232,208,0.5);font-weight:300;line-height:1.8">Formal sin frialdad. Accesible sin informalidad. Claro, directo y solemne.</p>
+        </div>
+        <div style="border-left:2px solid rgba(201,168,76,0.3);padding-left:20px">
+          <p style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);margin-bottom:6px">Personalidad</p>
+          <p style="font-size:13px;color:rgba(240,232,208,0.5);font-weight:300;line-height:1.8">El notario como guardián de la certeza legal. Noble, confiable y atemporal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider-rule">
+
+<!-- ═══════════════════════════════ LOGOTIPO ═══════════════════════════════ -->
+<div class="bg-cream">
+  <div class="section">
+    <p class="section-label">01 · Logotipo</p>
+    <h2 class="section-title">Variantes del Logo</h2>
+  </div>
+</div>
+
+<div class="logo-grid">
+  <!-- Light -->
+  <div class="logo-card logo-card-light">
+    <svg width="100%" max-width="340" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A84C" stroke-width="2.5">
+        <path d="M 12,8 L 88,8 L 88,68 Q 88,92 50,108 Q 12,92 12,68 Z"/>
+        <rect x="18" y="14" width="64" height="26" rx="0"/>
+        <line x1="18" y1="48" x2="82" y2="48"/>
+        <line x1="18" y1="60" x2="82" y2="60"/>
+        <line x1="18" y1="72" x2="76" y2="72"/>
+        <line x1="18" y1="40" x2="82" y2="40"/>
+      </g>
+      <text x="50" y="33" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600" fill="#C9A84C" letter-spacing="2">XVIII</text>
+      <line x1="108" y1="12" x2="108" y2="108" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+      <text x="148" y="50" font-family="Montserrat, sans-serif" font-size="22" font-weight="700" fill="#C9A84C" letter-spacing="4">NOTARÍA</text>
+      <text x="148" y="97" font-family="Montserrat, sans-serif" font-size="42" font-weight="700" fill="#C9A84C" letter-spacing="2">Nº 18</text>
+    </svg>
+    <p class="logo-usage-label">Versión clara · Uso principal</p>
+  </div>
+  <!-- Dark -->
+  <div class="logo-card logo-card-dark">
+    <svg width="100%" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A84C" stroke-width="2.5">
+        <path d="M 12,8 L 88,8 L 88,68 Q 88,92 50,108 Q 12,92 12,68 Z"/>
+        <rect x="18" y="14" width="64" height="26" rx="0"/>
+        <line x1="18" y1="48" x2="82" y2="48"/>
+        <line x1="18" y1="60" x2="82" y2="60"/>
+        <line x1="18" y1="72" x2="76" y2="72"/>
+        <line x1="18" y1="40" x2="82" y2="40"/>
+      </g>
+      <text x="50" y="33" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600" fill="#C9A84C" letter-spacing="2">XVIII</text>
+      <line x1="108" y1="12" x2="108" y2="108" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+      <text x="148" y="50" font-family="Montserrat, sans-serif" font-size="22" font-weight="700" fill="#C9A84C" letter-spacing="4">NOTARÍA</text>
+      <text x="148" y="97" font-family="Montserrat, sans-serif" font-size="42" font-weight="700" fill="#C9A84C" letter-spacing="2">Nº 18</text>
+    </svg>
+    <p class="logo-usage-label" style="color:var(--gold-600)">Versión oscura · Digital</p>
+  </div>
+  <!-- Gold bg -->
+  <div class="logo-card logo-card-gold">
+    <svg width="100%" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#3D2F0E" stroke-width="2.5">
+        <path d="M 12,8 L 88,8 L 88,68 Q 88,92 50,108 Q 12,92 12,68 Z"/>
+        <rect x="18" y="14" width="64" height="26" rx="0"/>
+        <line x1="18" y1="48" x2="82" y2="48"/>
+        <line x1="18" y1="60" x2="82" y2="60"/>
+        <line x1="18" y1="72" x2="76" y2="72"/>
+        <line x1="18" y1="40" x2="82" y2="40"/>
+      </g>
+      <text x="50" y="33" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600" fill="#3D2F0E" letter-spacing="2">XVIII</text>
+      <line x1="108" y1="12" x2="108" y2="108" stroke="#3D2F0E" stroke-width="1.5" opacity="0.5"/>
+      <text x="148" y="50" font-family="Montserrat, sans-serif" font-size="22" font-weight="700" fill="#3D2F0E" letter-spacing="4">NOTARÍA</text>
+      <text x="148" y="97" font-family="Montserrat, sans-serif" font-size="42" font-weight="700" fill="#3D2F0E" letter-spacing="2">Nº 18</text>
+    </svg>
+    <p class="logo-usage-label" style="color:rgba(61,47,14,0.5)">Fondo dorado · Materiales premium</p>
+  </div>
+  <!-- Cream -->
+  <div class="logo-card logo-card-cream">
+    <!-- Monogram only version -->
+    <svg width="160" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A84C" stroke-width="2.5">
+        <path d="M 8,8 L 92,8 L 92,68 Q 92,96 50,112 Q 8,96 8,68 Z"/>
+        <rect x="16" y="16" width="68" height="28" rx="0"/>
+        <line x1="16" y1="52" x2="84" y2="52"/>
+        <line x1="16" y1="65" x2="84" y2="65"/>
+        <line x1="16" y1="78" x2="77" y2="78"/>
+        <line x1="16" y1="44" x2="84" y2="44"/>
+      </g>
+      <text x="50" y="37" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-weight="600" fill="#C9A84C" letter-spacing="3">XVIII</text>
+    </svg>
+    <p class="logo-usage-label" style="color:var(--gold-800)">Escudo solo · Sellos y documentos</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ COLORES ═══════════════════════════════ -->
+<div class="bg-ink">
+  <div class="section">
+    <p class="section-label">02 · Paleta de Color</p>
+    <h2 class="section-title">Colores Corporativos</h2>
+
+    <div class="color-row">
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background:#C9A84C"></div>
+        <div class="color-chip-info">
+          <p class="color-chip-name">Oro Corporativo</p>
+          <p class="color-chip-hex">#C9A84C</p>
+          <p class="color-chip-use">Color primario. Logotipo, títulos, acentos principales en todos los materiales.</p>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background:#1A1208"></div>
+        <div class="color-chip-info">
+          <p class="color-chip-name">Tinta Notarial</p>
+          <p class="color-chip-hex">#1A1208</p>
+          <p class="color-chip-use">Fondo principal en digital. Contraste máximo con el oro. Solemnidad.</p>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background:#FAF6EC"></div>
+        <div class="color-chip-info" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.06)">
+          <p class="color-chip-name">Pergamino</p>
+          <p class="color-chip-hex" style="color:var(--gold-600)">#FAF6EC</p>
+          <p class="color-chip-use" style="color:rgba(240,232,208,0.35)">Fondos de papelería. Calidez sin perder formalidad del documento.</p>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background:#A8873A"></div>
+        <div class="color-chip-info">
+          <p class="color-chip-name">Oro Oscuro</p>
+          <p class="color-chip-hex">#A8873A</p>
+          <p class="color-chip-use">Acentos secundarios, bordes, elementos decorativos.</p>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background:#E8CC89"></div>
+        <div class="color-chip-info">
+          <p class="color-chip-name">Oro Claro</p>
+          <p class="color-chip-hex">#E8CC89</p>
+          <p class="color-chip-use">Textos sobre fondo oscuro. Subtítulos, cuerpo de texto sobre negro.</p>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background:#6B5420"></div>
+        <div class="color-chip-info">
+          <p class="color-chip-name">Oro Profundo</p>
+          <p class="color-chip-hex">#6B5420</p>
+          <p class="color-chip-use">Texto sobre pergamino. Máxima legibilidad en materiales impresos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette strip -->
+    <div style="display:flex;height:48px;border-radius:4px;overflow:hidden;margin-bottom:16px">
+      <div style="flex:3;background:#C9A84C"></div>
+      <div style="flex:3;background:#1A1208"></div>
+      <div style="flex:2;background:#FAF6EC"></div>
+      <div style="flex:1.5;background:#A8873A"></div>
+      <div style="flex:1.5;background:#E8CC89"></div>
+      <div style="flex:1;background:#6B5420"></div>
+    </div>
+    <p style="font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.3);text-transform:uppercase">Proporción de uso recomendada en materiales digitales</p>
+  </div>
+</div>
+
+<hr class="divider-rule">
+
+<!-- ═══════════════════════════════ TIPOGRAFÍA ═══════════════════════════════ -->
+<div class="bg-cream">
+  <div class="section">
+    <p class="section-label">03 · Tipografía</p>
+    <h2 class="section-title">Sistema Tipográfico</h2>
+
+    <div class="type-specimen">
+      <div class="type-block">
+        <p class="type-tag">Tipografía de Titulares</p>
+        <p class="type-display">Cormorant<br><em>Garamond</em></p>
+        <p style="font-size:11px;line-height:1.9;color:var(--charcoal);font-weight:300;margin-bottom:16px">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm<br>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz<br>0 1 2 3 4 5 6 7 8 9 · XVIII · Nº 18</p>
+        <p style="font-size:10px;color:var(--gold-600);letter-spacing:2px">Light 300 · Regular 400 · Medium 500 · SemiBold 600</p>
+      </div>
+      <div class="type-block">
+        <p class="type-tag">Tipografía Corporativa</p>
+        <div style="margin-bottom:20px">
+          <p class="type-heading-demo">Montserrat</p>
+          <p class="type-caption-demo">Sans-Serif Corporativa</p>
+        </div>
+        <p class="type-body-demo">Fe pública, certeza jurídica y seguridad documental. La Notaría No. 18 garantiza la autenticidad de sus actos con el máximo rigor legal y profesional.</p>
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+          <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-800)">Bold 700 · Títulos UI</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;color:var(--charcoal)">Medium 500 · Navegación</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:300;color:var(--charcoal)">Light 300 · Cuerpo de texto y párrafos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage example -->
+    <div style="background:var(--ink);border-radius:4px;padding:48px;margin-bottom:0">
+      <p style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-400);margin-bottom:8px">Servicios Notariales</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--cream);line-height:1.2;margin-bottom:16px">Escrituras, contratos y actos<br><em style="color:var(--gold-200)">con plena validez jurídica.</em></p>
+      <p style="font-size:12px;font-weight:300;color:rgba(240,232,208,0.45);line-height:1.9;max-width:520px">Contamos con más de tres décadas de experiencia en la formalización de actos jurídicos. Nuestro compromiso es brindar certeza y seguridad en cada documento que procesamos.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider-rule">
+
+<!-- ═══════════════════════════════ PAPELERÍA ═══════════════════════════════ -->
+<div class="bg-ink">
+  <div class="section">
+    <p class="section-label">04 · Papelería Corporativa</p>
+    <h2 class="section-title">Materiales Impresos</h2>
+
+    <div class="stationery-grid">
+      <!-- Business Card Front -->
+      <div>
+        <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-600);margin-bottom:16px">Tarjeta de Presentación · Frente</p>
+        <div class="biz-card">
+          <!-- Watermark escudo -->
+          <svg style="position:absolute;right:24px;top:50%;transform:translateY(-50%);opacity:0.04" width="80" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 8,8 L 92,8 L 92,68 Q 92,96 50,112 Q 8,96 8,68 Z" fill="#C9A84C"/>
+          </svg>
+          <div>
+            <p class="biz-name">Lic. María Fernanda<br>Rodríguez Leal</p>
+            <p class="biz-title">Notaria Pública No. 18 · Monterrey, N.L.</p>
+          </div>
+          <div class="biz-info">
+            <p class="biz-info-line">+52 (81) 8342 · 1800</p>
+            <p class="biz-info-line">contacto@notaria18mty.mx</p>
+            <p class="biz-info-line">Av. Constitución 1800, Monterrey</p>
+          </div>
+        </div>
+      </div>
+      <!-- Business Card Back -->
+      <div>
+        <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-600);margin-bottom:16px">Tarjeta de Presentación · Reverso</p>
+        <div class="biz-card biz-card-back">
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:16px">
+            <svg width="56" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#3D2F0E" stroke-width="3">
+                <path d="M 8,8 L 92,8 L 92,68 Q 92,96 50,112 Q 8,96 8,68 Z"/>
+                <rect x="16" y="16" width="68" height="28" rx="0"/>
+                <line x1="16" y1="52" x2="84" y2="52"/>
+                <line x1="16" y1="65" x2="84" y2="65"/>
+                <line x1="16" y1="78" x2="77" y2="78"/>
+                <line x1="16" y1="44" x2="84" y2="44"/>
+              </g>
+              <text x="50" y="37" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="16" font-weight="600" fill="#3D2F0E" letter-spacing="2">XVIII</text>
+            </svg>
+            <div style="text-align:center">
+              <p style="font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(61,47,14,0.6);margin-bottom:4px">Notaría Pública</p>
+              <p style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-900);letter-spacing:1px">No. 18</p>
+              <p style="font-size:7px;letter-spacing:3px;text-transform:uppercase;color:rgba(61,47,14,0.4);margin-top:4px">Monterrey, Nuevo León</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letterhead -->
+      <div style="grid-column:1 / -1">
+        <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-600);margin-bottom:16px">Hoja Membretada</p>
+        <div class="letterhead">
+          <div class="letterhead-header">
+            <svg width="260" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#C9A84C" stroke-width="2">
+                <path d="M 12,8 L 78,8 L 78,60 Q 78,80 45,94 Q 12,80 12,60 Z"/>
+                <rect x="17" y="13" width="56" height="22" rx="0"/>
+                <line x1="17" y1="42" x2="73" y2="42"/>
+                <line x1="17" y1="52" x2="73" y2="52"/>
+                <line x1="17" y1="63" x2="68" y2="63"/>
+                <line x1="17" y1="35" x2="73" y2="35"/>
+              </g>
+              <text x="45" y="29" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" font-weight="600" fill="#C9A84C" letter-spacing="2">XVIII</text>
+              <line x1="92" y1="10" x2="92" y2="94" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+              <text x="108" y="42" font-family="Montserrat, sans-serif" font-size="17" font-weight="700" fill="#A8873A" letter-spacing="3">NOTARÍA</text>
+              <text x="108" y="82" font-family="Montserrat, sans-serif" font-size="34" font-weight="700" fill="#A8873A" letter-spacing="2">Nº 18</text>
+            </svg>
+            <div class="letterhead-contact">
+              <p class="letterhead-contact-line">Av. Constitución 1800, Col. Centro</p>
+              <p class="letterhead-contact-line">Monterrey, Nuevo León, C.P. 64000</p>
+              <p class="letterhead-contact-line">Tel: +52 (81) 8342-1800</p>
+              <p class="letterhead-contact-line">contacto@notaria18mty.mx</p>
+            </div>
+          </div>
+          <p class="letterhead-body" style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-600);margin-bottom:12px">Monterrey, N.L., a 2 de junio de 2025</p>
+          <div class="letterhead-body">
+            <p>En el ejercicio de las facultades que me confiere la Ley del Notariado del Estado de Nuevo León, y a solicitud de la parte compareciente, hago constar:</p>
+            <p>Que ante mi fe, compareció el señor <strong style="color:var(--charcoal)">Juan Carlos Pérez Salinas</strong>, quien acredita su identidad con credencial de elector, y me manifestó su voluntad de formalizar el siguiente instrumento notarial...</p>
+            <p style="opacity:0.4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+          </div>
+          <div class="letterhead-footer">
+            <p class="letterhead-footer-text">Notaría Pública No. 18 · Monterrey, N.L.</p>
+            <p class="letterhead-footer-text">Escritura Pública · Fe Pública · Certeza Jurídica</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider-rule">
+
+<!-- ═══════════════════════════════ DIGITAL ═══════════════════════════════ -->
+<div class="bg-cream">
+  <div class="section">
+    <p class="section-label">05 · Identidad Digital</p>
+    <h2 class="section-title">Presencia en Línea</h2>
+
+    <!-- Web mockup -->
+    <div class="web-mockup" style="margin-bottom:48px">
+      <div class="browser-bar">
+        <div class="browser-dot" style="background:#ff5f56"></div>
+        <div class="browser-dot" style="background:#ffbd2e"></div>
+        <div class="browser-dot" style="background:#27c93f"></div>
+        <div class="browser-url">
+          <span class="browser-url-text">notaria18mty.mx</span>
+        </div>
+      </div>
+      <div class="web-nav">
+        <svg width="140" viewBox="0 0 280 60" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#C9A84C" stroke-width="1.5">
+            <path d="M 6,4 L 44,4 L 44,34 Q 44,46 25,54 Q 6,46 6,34 Z"/>
+            <rect x="10" y="8" width="30" height="13" rx="0"/>
+            <line x1="10" y1="24" x2="40" y2="24"/>
+            <line x1="10" y1="30" x2="40" y2="30"/>
+            <line x1="10" y1="36" x2="36" y2="36"/>
+            <line x1="10" y1="20" x2="40" y2="20"/>
+          </g>
+          <text x="25" y="17" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="7" font-weight="600" fill="#C9A84C" letter-spacing="1">XVIII</text>
+          <line x1="54" y1="6" x2="54" y2="54" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
+          <text x="64" y="24" font-family="Montserrat, sans-serif" font-size="10" font-weight="700" fill="#C9A84C" letter-spacing="2">NOTARÍA</text>
+          <text x="64" y="47" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#C9A84C" letter-spacing="1">Nº 18</text>
+        </svg>
+        <div class="web-nav-links">
+          <span class="web-nav-link active">Inicio</span>
+          <span class="web-nav-link">Servicios</span>
+          <span class="web-nav-link">Trámites</span>
+          <span class="web-nav-link">Quiénes Somos</span>
+          <span class="web-nav-link">Contacto</span>
+        </div>
+        <div class="web-btn" style="font-size:8px;padding:10px 20px">Agendar Cita</div>
+      </div>
+      <div class="web-hero">
+        <div>
+          <p class="web-hero-eyebrow">Fe pública · Monterrey, N.L.</p>
+          <p class="web-hero-title">Su notaría de confianza<br>desde hace <em>más de 30<br>años</em> de servicio.</p>
+          <p class="web-hero-body">Escrituras, poderes notariales, testamentos, protocolización de actas y todos los actos jurídicos que requieran de fe pública, con la certeza y seguridad que merece.</p>
+          <div style="display:flex;gap:16px">
+            <div class="web-btn">Ver Servicios</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;color:rgba(201,168,76,0.5);cursor:pointer">
+              Descargar Formatos ↗
+            </div>
+          </div>
+        </div>
+        <div class="web-hero-img">
+          <svg width="200" height="240" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" opacity="0.15">
+            <g fill="none" stroke="#C9A84C" stroke-width="2">
+              <path d="M 8,8 L 92,8 L 92,68 Q 92,96 50,112 Q 8,96 8,68 Z"/>
+              <rect x="16" y="16" width="68" height="28" rx="0"/>
+              <line x1="16" y1="52" x2="84" y2="52"/>
+              <line x1="16" y1="65" x2="84" y2="65"/>
+              <line x1="16" y1="78" x2="77" y2="78"/>
+              <line x1="16" y1="44" x2="84" y2="44"/>
+            </g>
+            <text x="50" y="37" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-weight="600" fill="#C9A84C" letter-spacing="3">XVIII</text>
+          </svg>
+        </div>
+      </div>
+      <div class="services-row">
+        <div class="service-card">
+          <span class="service-icon">⚖</span>
+          <p class="service-name">Escrituras</p>
+          <p class="service-desc">Compraventa, donación y transmisión de bienes inmuebles con plena validez.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📜</span>
+          <p class="service-name">Testamentos</p>
+          <p class="service-desc">Redacción y resguardo de últimas voluntades con confidencialidad absoluta.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🔏</span>
+          <p class="service-name">Poderes</p>
+          <p class="service-desc">Poderes generales, especiales y para actos de dominio y administración.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📋</span>
+          <p class="service-name">Protocolización</p>
+          <p class="service-desc">Actas de asamblea, acuerdos societarios y documentos privados.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email signature -->
+    <div class="digital-grid">
+      <div>
+        <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-600);margin-bottom:16px">Firma de Correo Electrónico</p>
+        <div class="email-sig">
+          <p class="sig-name">Lic. María Fernanda Rodríguez Leal</p>
+          <p class="sig-role">Notaria Pública No. 18 · Monterrey, N.L.</p>
+          <div class="sig-divider"></div>
+          <div class="sig-info">
+            <p class="sig-info-line"><strong>Tel</strong>+52 (81) 8342-1800</p>
+            <p class="sig-info-line"><strong>Email</strong>mfrodriguez@notaria18mty.mx</p>
+            <p class="sig-info-line"><strong>Web</strong>www.notaria18mty.mx</p>
+            <p class="sig-info-line"><strong>Dir</strong>Av. Constitución 1800, Monterrey, N.L.</p>
+          </div>
+          <div style="margin-top:14px;padding-top:12px;border-top:0.5px solid var(--gold-100)">
+            <p style="font-size:8px;color:var(--gold-400);letter-spacing:1px;line-height:1.7">Este mensaje y sus adjuntos son confidenciales. Si lo recibió por error,<br>por favor notifíquenos y elimine este correo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stamp / Sello -->
+      <div>
+        <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-600);margin-bottom:16px">Sello Notarial Digital</p>
+        <div class="stamp-wrap">
+          <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer ring -->
+            <circle cx="100" cy="100" r="94" fill="none" stroke="#C9A84C" stroke-width="2"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#C9A84C" stroke-width="0.5" stroke-dasharray="3 5"/>
+            <!-- Inner circle -->
+            <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Circular text top -->
+            <path id="topArc" d="M 20,100 A 80,80 0 0,1 180,100" fill="none"/>
+            <text font-family="Montserrat, sans-serif" font-size="10" font-weight="600" fill="#C9A84C" letter-spacing="5">
+              <textPath href="#topArc" startOffset="5%">NOTARÍA PÚBLICA · MONTERREY N.L.</textPath>
+            </text>
+            <!-- Circular text bottom -->
+            <path id="botArc" d="M 25,105 A 75,75 0 0,0 175,105" fill="none"/>
+            <text font-family="Montserrat, sans-serif" font-size="9" font-weight="500" fill="#A8873A" letter-spacing="4">
+              <textPath href="#botArc" startOffset="8%">FE PÚBLICA · CERTEZA JURÍDICA</textPath>
+            </text>
+            <!-- Shield center -->
+            <g transform="translate(62,50)" fill="none" stroke="#C9A84C" stroke-width="1.5">
+              <path d="M 4,4 L 52,4 L 52,42 Q 52,58 28,66 Q 4,58 4,42 Z"/>
+              <rect x="9" y="9" width="38" height="16" rx="0"/>
+              <line x1="9" y1="32" x2="47" y2="32"/>
+              <line x1="9" y1="40" x2="47" y2="40"/>
+              <line x1="9" y1="48" x2="43" y2="48"/>
+              <line x1="9" y1="27" x2="47" y2="27"/>
+            </g>
+            <text x="100" y="97" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" font-weight="600" fill="#C9A84C" letter-spacing="2">XVIII</text>
+            <!-- No. 18 text -->
+            <text x="100" y="152" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" fill="#C9A84C" letter-spacing="3">NO. 18</text>
+            <!-- Decorative stars -->
+            <text x="46" y="153" text-anchor="middle" font-size="8" fill="#C9A84C">✦</text>
+            <text x="154" y="153" text-anchor="middle" font-size="8" fill="#C9A84C">✦</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider-rule">
+
+<!-- ═══════════════════════════════ SOBRE ═══════════════════════════════ -->
+<div class="bg-ink">
+  <div class="section">
+    <p class="section-label">06 · Correspondencia</p>
+    <h2 class="section-title">Sobre Oficial</h2>
+    <div class="envelope-wrap">
+      <div class="envelope">
+        <div class="envelope-return">
+          <svg width="100" viewBox="0 0 280 60" xmlns="http://www.w3.org/2000/svg" style="display:block;margin-bottom:6px">
+            <g fill="none" stroke="#A8873A" stroke-width="1.5">
+              <path d="M 4,3 L 36,3 L 36,26 Q 36,38 20,44 Q 4,38 4,26 Z"/>
+              <rect x="7" y="6" width="26" height="11" rx="0"/>
+              <line x1="7" y1="20" x2="33" y2="20"/>
+              <line x1="7" y1="26" x2="33" y2="26"/>
+              <line x1="7" y1="32" x2="30" y2="32"/>
+              <line x1="7" y1="17" x2="33" y2="17"/>
+            </g>
+            <text x="20" y="14" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="5.5" font-weight="600" fill="#A8873A" letter-spacing="1">XVIII</text>
+            <line x1="44" y1="4" x2="44" y2="44" stroke="#A8873A" stroke-width="0.8" opacity="0.4"/>
+            <text x="52" y="20" font-family="Montserrat, sans-serif" font-size="8.5" font-weight="700" fill="#A8873A" letter-spacing="2">NOTARÍA</text>
+            <text x="52" y="39" font-family="Montserrat, sans-serif" font-size="17" font-weight="700" fill="#A8873A" letter-spacing="1">Nº 18</text>
+          </svg>
+          <span style="font-size:9px;color:var(--gold-600);line-height:1.8">Av. Constitución 1800, Col. Centro<br>Monterrey, N.L., C.P. 64000</span>
+        </div>
+        <p class="envelope-to-label">Destinatario</p>
+        <p class="envelope-to">Sr. Roberto Garza Treviño</p>
+        <p class="envelope-addr">Calle Morelos 220, Col. Obispado<br>Monterrey, Nuevo León<br>C.P. 64060</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider-rule">
+
+<!-- ═══════════════════════════════ PATTERNS ═══════════════════════════════ -->
+<div class="bg-cream">
+  <div class="section">
+    <p class="section-label">07 · Elementos Gráficos</p>
+    <h2 class="section-title">Patrones y Texturas</h2>
+
+    <div class="pattern-grid">
+      <!-- Pattern 1: Escudo repeat -->
+      <div class="pattern-block" style="background:var(--ink);">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="shieldPat" x="0" y="0" width="48" height="56" patternUnits="userSpaceOnUse">
+              <g fill="none" stroke="#C9A84C" stroke-width="0.6" opacity="0.12">
+                <path d="M 6,2 L 42,2 L 42,30 Q 42,42 24,50 Q 6,42 6,30 Z"/>
+                <rect x="9" y="6" width="30" height="12" rx="0"/>
+                <line x1="9" y1="22" x2="39" y2="22"/>
+                <line x1="9" y1="28" x2="39" y2="28"/>
+                <line x1="9" y1="34" x2="36" y2="34"/>
+                <line x1="9" y1="18" x2="39" y2="18"/>
+              </g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#shieldPat)"/>
+        </svg>
+        <p class="pattern-label">Patrón de escudos · Fondos formales</p>
+      </div>
+
+      <!-- Pattern 2: Gold lines -->
+      <div class="pattern-block" style="background:var(--gold-400);">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="linePat" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(61,47,14,0.15)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#linePat)"/>
+          <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Cormorant Garamond, serif" font-size="32" font-weight="300" fill="rgba(61,47,14,0.3)" letter-spacing="4">XVIII</text>
+        </svg>
+        <p class="pattern-label" style="color:rgba(61,47,14,0.4)">Marca de agua · Materiales dorados</p>
+      </div>
+
+      <!-- Pattern 3: Geometric -->
+      <div class="pattern-block" style="background:var(--cream-dark);">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="geoPat" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <rect x="1" y="1" width="38" height="38" fill="none" stroke="#C9A84C" stroke-width="0.4" opacity="0.2"/>
+              <circle cx="20" cy="20" r="3" fill="none" stroke="#C9A84C" stroke-width="0.4" opacity="0.15"/>
+              <line x1="20" y1="1" x2="20" y2="17" stroke="#C9A84C" stroke-width="0.3" opacity="0.1"/>
+              <line x1="20" y1="23" x2="20" y2="39" stroke="#C9A84C" stroke-width="0.3" opacity="0.1"/>
+              <line x1="1" y1="20" x2="17" y2="20" stroke="#C9A84C" stroke-width="0.3" opacity="0.1"/>
+              <line x1="23" y1="20" x2="39" y2="20" stroke="#C9A84C" stroke-width="0.3" opacity="0.1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#geoPat)"/>
+        </svg>
+        <p class="pattern-label" style="color:var(--gold-800)">Geométrico clásico · Papelería formal</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ BACK COVER ═══════════════════════════════ -->
+<div style="background:var(--ink);padding:100px 80px;text-align:center;position:relative;overflow:hidden;min-height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px">
+  <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="600" cy="200" r="300" fill="none" stroke="#C9A84C" stroke-width="0.25" opacity="0.08"/>
+    <circle cx="600" cy="200" r="320" fill="none" stroke="#C9A84C" stroke-width="0.25" opacity="0.05" stroke-dasharray="4 8"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#C9A84C" stroke-width="0.25" opacity="0.06"/>
+  </svg>
+  <svg width="72" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#C9A84C" stroke-width="2">
+      <path d="M 8,8 L 92,8 L 92,68 Q 92,96 50,112 Q 8,96 8,68 Z"/>
+      <rect x="16" y="16" width="68" height="28" rx="0"/>
+      <line x1="16" y1="52" x2="84" y2="52"/>
+      <line x1="16" y1="65" x2="84" y2="65"/>
+      <line x1="16" y1="78" x2="77" y2="78"/>
+      <line x1="16" y1="44" x2="84" y2="44"/>
+    </g>
+    <text x="50" y="37" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600" fill="#C9A84C" letter-spacing="2">XVIII</text>
+  </svg>
+  <div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--cream);letter-spacing:2px;margin-bottom:8px">Notaría Pública No. 18</p>
+    <p style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold-600)">Monterrey, Nuevo León · México</p>
+  </div>
+  <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-400),transparent)"></div>
+  <p style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(201,168,76,0.25)">Manual de Identidad Visual · 2025</p>
+</div>
+
+</body>
+</html>
