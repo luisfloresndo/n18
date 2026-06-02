@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { MessageCircle } from 'lucide-react'
 import { LampContainer } from '@/components/ui/lamp'
 import { ShineBorder } from '@/components/ui/shine-border'
+import { BorderBeam } from '@/components/ui/border-beam'
 import { BlurFade } from '@/components/ui/blur-fade'
 import { CONTACT } from '@/data/services'
 
@@ -47,10 +48,23 @@ export function Contacto() {
         </motion.div>
       </LampContainer>
 
-      {/* Form + datos */}
-      <div className="mx-auto -mt-20 grid max-w-7xl gap-14 px-6 pb-32 lg:grid-cols-2 lg:px-20">
+      {/* Franja del formulario con imagen de fondo (Opción A) */}
+      <div className="relative -mt-20 overflow-hidden">
+        {/* Imagen de fondo SOLO en esta franja (no toca el lamp de arriba) */}
+        <div aria-hidden className="absolute inset-0">
+          <img src="/images/contacto-bg.webp" alt="" className="h-full w-full object-cover" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, rgba(26,18,8,0.92) 0%, rgba(26,18,8,0.78) 50%, rgba(26,18,8,0.95) 100%)',
+            }}
+          />
+        </div>
+
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-6 pb-32 pt-24 lg:grid-cols-2 lg:px-20">
         <BlurFade inView>
-          <p className="max-w-md text-sm leading-[1.95] text-cream/60">
+          <p className="max-w-md text-base leading-[1.95] text-cream/80">
             Estamos para servirle. Escríbanos por WhatsApp o llámenos y con gusto
             le orientamos sobre su trámite.
           </p>
@@ -64,7 +78,7 @@ export function Contacto() {
               <MessageCircle className="h-4 w-4 text-gold-400" />
               WhatsApp · {CONTACT.whatsappDisplay}
             </a>
-            <div className="flex flex-col gap-1.5 text-sm text-cream/60">
+            <div className="flex flex-col gap-1.5 text-sm text-cream/75">
               {CONTACT.phones.map((p) => (
                 <a key={p} href={`tel:+52${p.replace(/-/g, '')}`} className="transition-colors hover:text-gold-400">
                   Tel: {p}
@@ -80,8 +94,9 @@ export function Contacto() {
             borderWidth={1}
             duration={12}
             color={['#C9A84C', '#6B5420', '#E8CC89']}
-            className="w-full min-w-0 max-w-none bg-ink p-8 text-cream"
+            className="relative w-full min-w-0 max-w-none overflow-hidden bg-ink/90 p-8 text-cream backdrop-blur-md"
           >
+            <BorderBeam size={300} duration={14} colorFrom="#E8CC89" colorTo="#A8873A" borderWidth={1.5} />
             <form onSubmit={handleSubmit} className="flex w-full flex-col gap-5">
               <Field label="Nombre">
                 <input value={nombre} onChange={(e) => setNombre(e.target.value)} required className="n18-input" placeholder="Su nombre completo" />
@@ -102,6 +117,7 @@ export function Contacto() {
             </form>
           </ShineBorder>
         </BlurFade>
+      </div>
       </div>
     </section>
   )

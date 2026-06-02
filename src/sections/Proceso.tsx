@@ -45,7 +45,7 @@ export function Proceso() {
         </ContainerScroll>
 
         {/* Pasos */}
-        <div className="mx-auto -mt-24 max-w-7xl px-6 pb-32 lg:px-20">
+        <div className="mx-auto max-w-7xl px-6 pb-32 lg:px-20">
           <div className="grid gap-px overflow-hidden rounded-sm border border-gold-400/15 md:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s, i) => (
               <BlurFade
@@ -60,7 +60,7 @@ export function Proceso() {
                 <h3 className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-gold-200">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm leading-[1.8] text-cream/50">{s.desc}</p>
+                <p className="mt-3 text-sm leading-[1.8] text-cream/65">{s.desc}</p>
               </BlurFade>
             ))}
           </div>

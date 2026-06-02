@@ -33,9 +33,9 @@ export function Nav() {
           scrolled ? 'border-b border-gold-400/15 bg-ink/80 backdrop-blur-md' : 'bg-transparent'
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-10">
+        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:h-28 lg:px-10">
           <a href="#inicio" aria-label="Notaría No. 18 — inicio">
-            <Logo variant="oro" className="h-8 w-auto lg:h-9" />
+            <Logo variant="oro" className="h-12 w-auto lg:h-14" />
           </a>
 
           <ul className="hidden items-center gap-8 lg:flex">
@@ -80,8 +80,8 @@ export function Nav() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[60] flex flex-col bg-ink/98 backdrop-blur-lg lg:hidden"
           >
-            <div className="flex h-16 items-center justify-between px-6">
-              <Logo variant="oro" className="h-8 w-auto" />
+            <div className="flex h-20 items-center justify-between px-6">
+              <Logo variant="oro" className="h-12 w-auto" />
               <button type="button" onClick={() => setOpen(false)} aria-label="Cerrar menú" className="text-gold-400">
                 <X className="h-6 w-6" />
               </button>

@@ -18,6 +18,7 @@ export function Credibilidad() {
       id="notario"
       className="relative overflow-hidden bg-ink px-6 py-28 lg:px-20 lg:py-40"
     >
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-96" style={{background:"radial-gradient(ellipse 60% 100% at 50% 0%, rgba(201,168,76,0.10) 0%, transparent 70%)"}} />
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
         {/* Sello con borde animado */}
         <BlurFade inView>
@@ -45,7 +46,7 @@ export function Credibilidad() {
           </BlurFade>
 
           <BlurFade inView delay={0.2}>
-            <p className="mt-7 max-w-2xl text-sm leading-[1.95] text-cream/60">
+            <p className="mt-7 max-w-2xl text-sm leading-[1.95] text-cream/75">
               Licenciado en Derecho por la Universidad de Monterrey (2001) y
               Maestro en Administración con especialidad en Recursos Humanos
               (2007). Tras ejercer como Asesor Jurídico y Notario Público

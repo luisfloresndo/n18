@@ -11,6 +11,7 @@ import { SERVICE_CATEGORIES } from '@/data/services'
 export function Servicios() {
   return (
     <section id="servicios" className="relative bg-ink px-6 py-28 lg:px-20 lg:py-40">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-96" style={{background:"radial-gradient(ellipse 60% 100% at 50% 0%, rgba(201,168,76,0.10) 0%, transparent 70%)"}} />
       <div className="mx-auto max-w-7xl">
         {/* Encabezado editorial a dos columnas */}
         <div className="grid gap-10 border-b border-gold-400/15 pb-14 lg:grid-cols-[1fr_1fr] lg:gap-24">
@@ -24,7 +25,7 @@ export function Servicios() {
             </h2>
           </BlurFade>
           <BlurFade inView delay={0.15} className="flex items-end">
-            <p className="max-w-md text-sm leading-[1.95] text-cream/55">
+            <p className="max-w-md text-sm leading-[1.95] text-cream/70">
               Seleccione una categoría para ver los servicios y descargar los
               requisitos y formatos correspondientes. Cada documento es
               cotejado para dar fe certera de su autenticidad.
@@ -51,7 +52,7 @@ export function Servicios() {
                 </span>
               </AccordionTrigger>
               <AccordionContent>
-                <p className="mb-8 max-w-2xl pl-0 text-sm leading-[1.85] text-cream/45 md:pl-[3.75rem]">
+                <p className="mb-8 max-w-2xl pl-0 text-sm leading-[1.85] text-cream/60 md:pl-[3.75rem]">
                   {cat.blurb}
                 </p>
                 <ul className="grid gap-x-12 gap-y-6 md:grid-cols-2 md:pl-[3.75rem]">

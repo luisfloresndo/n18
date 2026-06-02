@@ -46,7 +46,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <Logo variant="oro" className="mb-10 h-14 w-auto md:h-16" />
+            <Logo variant="oro" className="mb-10 h-20 w-auto md:h-24" />
           </motion.div>
 
           <motion.p

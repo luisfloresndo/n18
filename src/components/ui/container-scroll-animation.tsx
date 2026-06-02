@@ -12,6 +12,7 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    offset: ["start end", "end start"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -27,16 +28,18 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
+    return isMobile ? [0.8, 0.95] : [1.1, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  // La tablet termina de enderezarse (rotate 0) en progress ~0.5,
+  // justo cuando el contenedor queda centrado en el viewport.
+  const rotate = useTransform(scrollYProgress, [0.12, 0.5], [24, 0]);
+  const scale = useTransform(scrollYProgress, [0.12, 0.5], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0.12, 0.5], [0, -40]);
 
   return (
     <div
-      className="h-[60rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
+      className="h-[52rem] md:h-[66rem] flex items-center justify-center relative p-2 md:p-20"
       ref={containerRef}
     >
       <div
