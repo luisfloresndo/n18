@@ -26,3 +26,4 @@ dist-ssr
 # Archivos internos ATLAS (no para el repo cliente)
 ATLAS_*.md
 CLAUDE.md
+.vercel

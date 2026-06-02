@@ -3,6 +3,12 @@ import Lenis from 'lenis'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { Hero } from '@/sections/Hero'
+import { QuienesSomos } from '@/sections/QuienesSomos'
+import { Credibilidad } from '@/sections/Credibilidad'
+import { Servicios } from '@/sections/Servicios'
+import { Proceso } from '@/sections/Proceso'
+import { Ubicacion } from '@/sections/Ubicacion'
+import { Contacto } from '@/sections/Contacto'
 
 function App() {
   // Smooth scroll (Lenis) — respeta prefers-reduced-motion
@@ -28,6 +34,12 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <QuienesSomos />
+        <Credibilidad />
+        <Servicios />
+        <Proceso />
+        <Ubicacion />
+        <Contacto />
       </main>
       <Footer />
     </div>

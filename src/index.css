@@ -20,8 +20,33 @@
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', system-ui, sans-serif;
 
+  --color-border: rgba(201, 168, 76, 0.15);
+
   --shadow-glow-gold: 0 0 0 1px rgba(201, 168, 76, 0.4),
     0 8px 32px rgba(201, 168, 76, 0.12);
+
+  /* Animaciones de los componentes 21st.dev */
+  --animate-shine: shine var(--duration, 14s) infinite linear;
+  --animate-border-beam: border-beam calc(var(--duration, 15) * 1s) infinite linear;
+  --animate-accordion-down: accordion-down 0.25s ease-out;
+  --animate-accordion-up: accordion-up 0.25s ease-out;
+}
+
+@keyframes shine {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+@keyframes border-beam {
+  100% { offset-distance: 100%; }
+}
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
 }
 
 /* ─── BASE ─── */
@@ -61,6 +86,27 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Inputs del formulario de contacto */
+.n18-input {
+  width: 100%;
+  background: rgba(254, 252, 247, 0.03);
+  border: 0.5px solid rgba(201, 168, 76, 0.25);
+  border-radius: 2px;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-cream);
+  transition: border-color 200ms, box-shadow 200ms;
+}
+.n18-input::placeholder {
+  color: rgba(250, 246, 236, 0.3);
+}
+.n18-input:focus {
+  outline: none;
+  border-color: var(--color-gold-400);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
 }
 
 /* Grain de pergamino sutil sobre la tinta (SVG filter, mejor perf que CSS filter) */
