@@ -1,8 +1,33 @@
+import type { ComponentProps, ReactNode } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 import { MessageCircle, Phone } from 'lucide-react'
 import { Logo } from './Logo'
 import { Boxes } from '@/components/ui/background-boxes'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { CONTACT, WHATSAPP_URL } from '@/data/services'
+
+/** Animación de aparición (efferd/footer-section): blur-in + desplazamiento + stagger */
+type ViewAnimationProps = {
+  delay?: number
+  className?: ComponentProps<typeof motion.div>['className']
+  children: ReactNode
+}
+
+function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
+  const shouldReduceMotion = useReducedMotion()
+  if (shouldReduceMotion) return <>{children}</>
+  return (
+    <motion.div
+      initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
+      whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay, duration: 0.8 }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 const NAV = [
   { label: 'Quiénes Somos', href: '#nosotros' },
@@ -25,7 +50,7 @@ export function Footer() {
       <div className="relative z-30 mx-auto max-w-7xl px-6 py-20 lg:px-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr]">
           {/* Marca */}
-          <div>
+          <AnimatedContainer delay={0.1}>
             <Logo variant="oro" className="mb-7 h-16 w-auto" />
             <p className="max-w-xs text-sm leading-relaxed text-cream/65">
               Notaría Pública No. 18 · {CONTACT.city}.
@@ -41,10 +66,11 @@ export function Footer() {
               <MessageCircle className="h-4 w-4" />
               Escríbenos por WhatsApp
             </a>
-          </div>
+          </AnimatedContainer>
 
           {/* Navegación */}
-          <nav>
+          <AnimatedContainer delay={0.2}>
+            <nav>
             <h4 className="mb-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-600">
               Navegación
             </h4>
@@ -61,10 +87,11 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </nav>
+            </nav>
+          </AnimatedContainer>
 
           {/* Contacto */}
-          <div>
+          <AnimatedContainer delay={0.3}>
             <h4 className="mb-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-600">
               Contacto
             </h4>
@@ -94,17 +121,20 @@ export function Footer() {
                 {CONTACT.whatsappDisplay}
               </a>
             </div>
-          </div>
+          </AnimatedContainer>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-gold-400/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
+        <AnimatedContainer
+          delay={0.4}
+          className="mt-16 flex flex-col gap-3 border-t border-gold-400/15 pt-7 sm:flex-row sm:items-center sm:justify-between"
+        >
           <p className="text-[10px] uppercase tracking-[0.25em] text-gold-400/45">
             © {new Date().getFullYear()} Notaría Pública No. 18 · {CONTACT.city}
           </p>
           <p className="text-[10px] uppercase tracking-[0.25em] text-gold-400/45">
             Todos los derechos reservados
           </p>
-        </div>
+        </AnimatedContainer>
       </div>
     </footer>
   )

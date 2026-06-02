@@ -57,7 +57,7 @@ export function Contacto() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(26,18,8,0.92) 0%, rgba(26,18,8,0.78) 50%, rgba(26,18,8,0.95) 100%)',
+                'linear-gradient(100deg, rgba(26,18,8,0.82) 0%, rgba(26,18,8,0.45) 45%, rgba(26,18,8,0.2) 100%)',
             }}
           />
         </div>
