@@ -74,6 +74,33 @@
   }
 }
 
+/* Cursor dorado custom: oculta el nativo en punteros finos */
+.cursor-none,
+.cursor-none a,
+.cursor-none button,
+.cursor-none input,
+.cursor-none textarea,
+.cursor-none [role='button'] {
+  cursor: none;
+}
+
+/* Sección clara (pergamino) — invierte la paleta */
+.section-light {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+}
+
+/* Overlay de viñeta dorada sobre imágenes de fondo */
+.img-vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(26, 18, 8, 0.95) 0%, rgba(26, 18, 8, 0.4) 45%, rgba(26, 18, 8, 0.1) 100%),
+    radial-gradient(ellipse at 70% 50%, transparent 0%, rgba(26, 18, 8, 0.5) 100%);
+  pointer-events: none;
+}
+
 /* Respeta usuarios con movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   html {

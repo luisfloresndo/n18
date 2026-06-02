@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
+import { SideRail } from '@/components/SideRail'
+import { GoldCursor } from '@/components/GoldCursor'
 import { Hero } from '@/sections/Hero'
 import { QuienesSomos } from '@/sections/QuienesSomos'
 import { Credibilidad } from '@/sections/Credibilidad'
@@ -15,7 +17,6 @@ function App() {
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduce) return
-
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true })
     let raf = 0
     const loop = (time: number) => {
@@ -31,8 +32,10 @@ function App() {
 
   return (
     <div className="grain relative min-h-screen">
+      <GoldCursor />
+      <SideRail />
       <Nav />
-      <main>
+      <main className="lg:pl-16">
         <Hero />
         <QuienesSomos />
         <Credibilidad />
@@ -41,7 +44,9 @@ function App() {
         <Ubicacion />
         <Contacto />
       </main>
-      <Footer />
+      <div className="lg:pl-16">
+        <Footer />
+      </div>
     </div>
   )
 }
