@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { MapPin, ExternalLink } from 'lucide-react'
 import { BlurFade } from '@/components/ui/blur-fade'
 import { BorderBeam } from '@/components/ui/border-beam'
@@ -5,6 +6,9 @@ import { Boxes } from '@/components/ui/background-boxes'
 import { CONTACT } from '@/data/services'
 
 export function Ubicacion() {
+  // El mapa no captura el scroll hasta que el usuario hace clic (y se re-bloquea al salir)
+  const [mapActive, setMapActive] = useState(false)
+
   return (
     <section id="ubicacion" className="relative bg-ink">
       {/* Banda de imagen Monterrey con título iluminado */}
@@ -75,22 +79,42 @@ export function Ubicacion() {
 
           {/* Mapa enmarcado premium */}
           <BlurFade inView delay={0.15}>
-            <figure className="relative rounded-lg border border-gold-400/30 bg-ink p-2 shadow-[0_30px_90px_rgba(0,0,0,0.6)]">
+            <figure
+              className="relative rounded-lg border border-gold-400/30 bg-ink p-2 shadow-[0_30px_90px_rgba(0,0,0,0.6)]"
+              onMouseLeave={() => setMapActive(false)}
+            >
               <BorderBeam size={320} duration={16} colorFrom="#C9A84C" colorTo="#6B5420" borderWidth={1.5} />
               {/* Esquinas ornamentales */}
               {['left-2 top-2 border-l border-t', 'right-2 top-2 border-r border-t', 'left-2 bottom-2 border-l border-b', 'right-2 bottom-2 border-r border-b'].map((c) => (
                 <span key={c} className={`absolute z-10 h-5 w-5 border-gold-400/70 ${c}`} />
               ))}
-              <div className="overflow-hidden rounded-md">
+              <div className="relative overflow-hidden rounded-md">
                 <iframe
                   title="Ubicación Notaría Pública No. 18"
                   src={CONTACT.mapsEmbed}
                   width="100%"
                   height="440"
-                  style={{ border: 0, filter: 'grayscale(0.35) contrast(1.05) brightness(0.92)' }}
+                  style={{
+                    border: 0,
+                    filter: 'grayscale(0.35) contrast(1.05) brightness(0.92)',
+                    pointerEvents: mapActive ? 'auto' : 'none',
+                  }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+                {/* Capa que deja pasar el scroll hasta que se hace clic en el mapa */}
+                {!mapActive && (
+                  <button
+                    type="button"
+                    onClick={() => setMapActive(true)}
+                    aria-label="Activar interacción con el mapa"
+                    className="group absolute inset-0 z-[6] flex items-end justify-center bg-transparent pb-6"
+                  >
+                    <span className="rounded-sm border border-gold-400/30 bg-ink/80 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-gold-200 backdrop-blur-sm transition-colors duration-300 group-hover:border-gold-400 group-hover:text-gold-200">
+                      Haz clic para interactuar
+                    </span>
+                  </button>
+                )}
               </div>
             </figure>
           </BlurFade>
