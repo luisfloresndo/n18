@@ -1,10 +1,9 @@
 import type { ComponentProps, ReactNode } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { MessageCircle, Phone } from 'lucide-react'
 import { Logo } from './Logo'
 import { Boxes } from '@/components/ui/background-boxes'
 import { BorderBeam } from '@/components/ui/border-beam'
-import { CONTACT, WHATSAPP_URL } from '@/data/services'
+import { CONTACT } from '@/data/services'
 
 /** Animación de aparición (efferd/footer-section): blur-in + desplazamiento + stagger */
 type ViewAnimationProps = {
@@ -57,15 +56,6 @@ export function Footer() {
               <br />
               Fe pública · Escritura pública · Certeza jurídica.
             </p>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-2.5 rounded-sm border border-gold-400/40 px-5 py-3 text-[10px] font-medium uppercase tracking-[0.25em] text-gold-400 transition-colors duration-300 hover:bg-gold-400 hover:text-ink"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Escríbenos por WhatsApp
-            </a>
           </AnimatedContainer>
 
           {/* Navegación */}
@@ -90,37 +80,24 @@ export function Footer() {
             </nav>
           </AnimatedContainer>
 
-          {/* Contacto */}
+          {/* Notario */}
           <AnimatedContainer delay={0.3}>
             <h4 className="mb-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-600">
-              Contacto
-            </h4>
-            <p className="mb-4 text-sm text-cream/70">
               Notario Titular
-              <br />
-              <span className="text-cream/90">Salvador Martínez Martínez</span>
+            </h4>
+            <p className="font-display text-xl font-normal text-cream/90">
+              Salvador Martínez Martínez
             </p>
-            <div className="space-y-2">
-              {CONTACT.phones.map((p) => (
-                <a
-                  key={p}
-                  href={`tel:+52${p.replace(/-/g, '')}`}
-                  className="flex items-center gap-2.5 text-sm text-cream/70 transition-colors hover:text-gold-400"
-                >
-                  <Phone className="h-3.5 w-3.5 text-gold-400" />
-                  {p}
-                </a>
-              ))}
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-sm text-cream/70 transition-colors hover:text-gold-400"
-              >
-                <MessageCircle className="h-3.5 w-3.5 text-gold-400" />
-                {CONTACT.whatsappDisplay}
-              </a>
-            </div>
+            <p className="mt-2 text-sm text-cream/55">
+              Notaría Pública No. 18 · Primer Distrito Registral
+            </p>
+            <a
+              href="#contacto"
+              className="group mt-6 inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.25em] text-gold-400 transition-colors hover:text-gold-200"
+            >
+              <span className="h-px w-6 bg-gold-400 transition-all duration-300 group-hover:w-9" />
+              Contacto y citas
+            </a>
           </AnimatedContainer>
         </div>
 

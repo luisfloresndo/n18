@@ -1,4 +1,4 @@
-import { MapPin, Clock, Phone, ExternalLink } from 'lucide-react'
+import { MapPin, ExternalLink } from 'lucide-react'
 import { BlurFade } from '@/components/ui/blur-fade'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { Boxes } from '@/components/ui/background-boxes'
@@ -44,60 +44,33 @@ export function Ubicacion() {
         <Boxes />
 
         <div className="relative z-30 mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 lg:grid-cols-[0.8fr_1.2fr] lg:px-20">
-          <BlurFade inView className="flex flex-col justify-center gap-4">
-            {[
-              {
-                icon: MapPin,
-                main: CONTACT.city,
-                sub: 'Primer Distrito Registral · Notaría Pública No. 18',
-              },
-              {
-                icon: Phone,
-                main: CONTACT.phones.join('  ·  '),
-                sub: 'Atención telefónica directa',
-                links: CONTACT.phones,
-              },
-              {
-                icon: Clock,
-                main: 'Lunes a viernes',
-                sub: 'Horario de oficina',
-              },
-            ].map((item, i) => (
-              <BlurFade key={i} inView delay={0.1 * i}>
-                <div className="group flex items-start gap-4 rounded-sm border border-gold-400/15 bg-ink/60 p-5 backdrop-blur-sm transition-colors duration-300 hover:border-gold-400/40">
-                  <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-gold-400 transition-transform duration-300 group-hover:scale-110" />
-                  <div>
-                    {item.links ? (
-                      <div className="flex flex-col gap-0.5">
-                        {item.links.map((p) => (
-                          <a
-                            key={p}
-                            href={`tel:+52${p.replace(/-/g, '')}`}
-                            className="text-base text-cream/90 transition-colors hover:text-gold-400"
-                          >
-                            {p}
-                          </a>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="text-base text-cream/90">{item.main}</p>
-                    )}
-                    <p className="mt-1 text-xs text-cream/50">{item.sub}</p>
-                  </div>
-                </div>
-              </BlurFade>
-            ))}
+          <BlurFade inView className="flex flex-col justify-center">
+            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.4em] text-gold-600">
+              Nuestra oficina
+            </p>
+            <div className="flex items-start gap-5">
+              <MapPin className="mt-1.5 h-6 w-6 shrink-0 text-gold-400" />
+              <div>
+                <p className="font-display text-2xl font-normal leading-tight text-gold-100">
+                  {CONTACT.address}
+                </p>
+                <p className="mt-2 text-sm text-cream/70">{CONTACT.addressLine2}</p>
+                <p className="mt-1 text-sm text-cream/70">{CONTACT.city}</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.2em] text-gold-600">
+                  Primer Distrito Registral
+                </p>
+              </div>
+            </div>
 
-            <BlurFade inView delay={0.35}>
-              <a
-                href={CONTACT.mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.25em] text-gold-400 transition-colors hover:text-gold-200"
-              >
-                Cómo llegar <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            </BlurFade>
+            <a
+              href={CONTACT.mapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex w-fit items-center gap-3 rounded-sm border border-gold-400 px-7 py-3.5 text-[10px] font-medium uppercase tracking-[0.25em] text-gold-400 transition-colors duration-300 hover:bg-gold-400 hover:text-ink"
+            >
+              Cómo llegar
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
           </BlurFade>
 
           {/* Mapa enmarcado premium */}

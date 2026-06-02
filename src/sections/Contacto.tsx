@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { motion } from 'motion/react'
-import { MessageCircle, Phone, Clock, MapPin } from 'lucide-react'
+import { MessageCircle, Phone, Clock } from 'lucide-react'
 import { LampContainer } from '@/components/ui/lamp'
 import { ShineBorder } from '@/components/ui/shine-border'
 import { BorderBeam } from '@/components/ui/border-beam'
@@ -106,13 +106,6 @@ export function Contacto() {
               <div>
                 <p className="text-sm text-cream/90">Lunes a viernes</p>
                 <p className="text-xs text-cream/55">Horario de oficina</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 rounded-sm border border-gold-400/15 bg-ink/45 p-4 backdrop-blur-sm transition-colors duration-300 hover:border-gold-400/40 sm:col-span-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-              <div>
-                <p className="text-sm text-cream/90">{CONTACT.city}</p>
-                <p className="text-xs text-cream/55">Primer Distrito Registral · Notaría Pública No. 18</p>
               </div>
             </div>
           </div>
