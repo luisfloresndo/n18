@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'motion/react'
+import { motion, useMotionValue } from 'motion/react'
 
 /**
  * Cursor dorado custom (audacia 10).
@@ -11,10 +11,9 @@ export function GoldCursor() {
   const [visible, setVisible] = useState(false)
   const [hovering, setHovering] = useState(false)
 
+  // Posición 1:1 con el puntero (sin spring) → velocidad normal, sin lag
   const x = useMotionValue(-100)
   const y = useMotionValue(-100)
-  const sx = useSpring(x, { damping: 30, stiffness: 450, mass: 0.4 })
-  const sy = useSpring(y, { damping: 30, stiffness: 450, mass: 0.4 })
 
   useEffect(() => {
     const fine = window.matchMedia('(pointer: fine)').matches
@@ -50,7 +49,7 @@ export function GoldCursor() {
     <motion.div
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[100] mix-blend-difference"
-      style={{ x: sx, y: sy }}
+      style={{ x, y }}
     >
       <motion.div
         className="rounded-full border border-gold-400"
