@@ -52,13 +52,13 @@ export function Contacto() {
       <div className="relative -mt-20 overflow-hidden">
         <div aria-hidden className="absolute inset-0">
           <img src="/images/contacto-bg.webp" alt="" className="h-full w-full object-cover" />
-          {/* Velo oscuro uniforme para legibilidad (sin café a la izquierda) */}
-          <div className="absolute inset-0 bg-ink/68" />
+          {/* Velo oscuro uniforme y ligero (deja ver la imagen completa) */}
+          <div className="absolute inset-0 bg-ink/45" />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(26,18,8,0.85) 0%, rgba(26,18,8,0.25) 25%, rgba(26,18,8,0.25) 75%, rgba(26,18,8,0.9) 100%)',
+                'linear-gradient(to bottom, rgba(26,18,8,0.8) 0%, rgba(26,18,8,0.2) 22%, rgba(26,18,8,0.2) 78%, rgba(26,18,8,0.88) 100%)',
             }}
           />
         </div>
