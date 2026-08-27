@@ -4,13 +4,23 @@ import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { SideRail } from '@/components/SideRail'
 import { GoldCursor } from '@/components/GoldCursor'
+import { ScrollProgress } from '@/components/motion/ScrollProgress'
+import { WhatsAppBubble } from '@/components/motion/WhatsAppBubble'
+import { Marquee } from '@/components/motion/Marquee'
+import { PhotoDivider } from '@/components/motion/PhotoDivider'
 import { Hero } from '@/sections/Hero'
 import { QuienesSomos } from '@/sections/QuienesSomos'
 import { Credibilidad } from '@/sections/Credibilidad'
+import { StatementScrolly } from '@/sections/StatementScrolly'
 import { Servicios } from '@/sections/Servicios'
-import { Proceso } from '@/sections/Proceso'
+import { ProcesoPineado } from '@/sections/ProcesoPineado'
 import { Ubicacion } from '@/sections/Ubicacion'
 import { Contacto } from '@/sections/Contacto'
+
+const MARQUEE = [
+  'Escrituras', 'Poderes', 'Testamentos', 'Fideicomisos', 'Compraventas',
+  'Donaciones', 'Fe de Hechos', 'Sociedades', 'Hipotecas', 'Cotejos',
+]
 
 function App() {
   // Smooth scroll (Lenis) — respeta prefers-reduced-motion
@@ -32,21 +42,24 @@ function App() {
 
   return (
     <div className="grain relative min-h-screen">
+      <ScrollProgress />
       <GoldCursor />
       <SideRail />
+      <WhatsAppBubble />
       <Nav />
-      <main className="lg:pl-16">
+      <main>
         <Hero />
         <QuienesSomos />
+        <Marquee items={MARQUEE} />
         <Credibilidad />
+        <PhotoDivider src="/images/seal-macro.webp" alt="Sello notarial dorado" caption="Fe pública · Notaría No. 18" height="62vh" />
+        <StatementScrolly />
         <Servicios />
-        <Proceso />
+        <ProcesoPineado />
         <Ubicacion />
         <Contacto />
       </main>
-      <div className="lg:pl-16">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   )
 }

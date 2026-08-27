@@ -16,10 +16,10 @@ export function Credibilidad() {
   return (
     <section
       id="notario"
-      className="relative overflow-hidden bg-ink px-6 py-28 lg:px-20 lg:py-40"
+      className="relative overflow-hidden bg-ink px-6 py-28 lg:px-12 xl:px-16 lg:py-40"
     >
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-96" style={{background:"radial-gradient(ellipse 60% 100% at 50% 0%, rgba(201,168,76,0.10) 0%, transparent 70%)"}} />
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
         {/* Sello con borde animado */}
         <BlurFade inView>
           <figure className="relative mx-auto max-w-md overflow-hidden rounded-md">

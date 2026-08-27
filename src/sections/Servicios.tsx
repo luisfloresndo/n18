@@ -10,9 +10,9 @@ import { SERVICE_CATEGORIES } from '@/data/services'
 
 export function Servicios() {
   return (
-    <section id="servicios" className="relative bg-ink px-6 py-28 lg:px-20 lg:py-40">
+    <section id="servicios" className="relative bg-ink px-6 py-28 lg:px-12 xl:px-16 lg:py-40">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-96" style={{background:"radial-gradient(ellipse 60% 100% at 50% 0%, rgba(201,168,76,0.10) 0%, transparent 70%)"}} />
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         {/* Encabezado editorial a dos columnas */}
         <div className="grid gap-10 border-b border-gold-400/15 pb-14 lg:grid-cols-[1fr_1fr] lg:gap-24">
           <BlurFade inView>

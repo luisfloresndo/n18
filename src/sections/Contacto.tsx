@@ -63,7 +63,7 @@ export function Contacto() {
           />
         </div>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-14 px-6 pb-32 pt-28 lg:grid-cols-[0.95fr_1.05fr] lg:px-20">
+      <div className="relative z-10 mx-auto grid max-w-[1440px] items-start gap-14 px-6 pb-32 pt-28 lg:grid-cols-[0.95fr_1.05fr] lg:px-12 xl:px-16">
         <BlurFade inView className="flex flex-col">
           <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.4em] text-gold-400">
             Hablemos

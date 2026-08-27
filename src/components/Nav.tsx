@@ -33,7 +33,7 @@ export function Nav() {
           scrolled ? 'border-b border-gold-400/15 bg-ink/80 backdrop-blur-md' : 'bg-transparent'
         }`}
       >
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:h-28 lg:px-10">
+        <nav className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:h-28 lg:px-12 xl:px-16">
           <a href="#inicio" aria-label="Notaría No. 18 — inicio">
             <Logo variant="oro" className="h-12 w-auto lg:h-14" />
           </a>

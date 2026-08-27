@@ -4,14 +4,14 @@ export function QuienesSomos() {
   return (
     <section
       id="nosotros"
-      className="section-light relative overflow-hidden px-6 py-28 lg:px-20 lg:py-40"
+      className="section-light relative overflow-hidden px-6 py-28 lg:px-12 xl:px-16 lg:py-40"
       style={{
         backgroundImage: 'url(/images/pergamino-claro.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
         {/* Texto */}
         <div>
           <BlurFade inView>

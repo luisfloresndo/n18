@@ -19,7 +19,7 @@ export function Ubicacion() {
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-7xl px-6 pb-12 lg:px-20">
+          <div className="mx-auto w-full max-w-[1440px] px-6 pb-12 lg:px-12 xl:px-16">
             <BlurFade inView>
               <p
                 className="mb-4 text-[10px] font-medium uppercase tracking-[0.45em] text-gold-200"
@@ -47,7 +47,7 @@ export function Ubicacion() {
         <div className="absolute inset-0 z-20 bg-ink [mask-image:radial-gradient(ellipse_at_center,transparent_5%,#000_75%)]" />
         <Boxes />
 
-        <div className="relative z-30 mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 lg:grid-cols-[0.8fr_1.2fr] lg:px-20">
+        <div className="relative z-30 mx-auto grid max-w-[1440px] items-center gap-12 px-6 py-24 lg:grid-cols-[0.8fr_1.2fr] lg:px-12 xl:px-16">
           <BlurFade inView className="flex flex-col justify-center">
             <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.4em] text-gold-600">
               Nuestra oficina

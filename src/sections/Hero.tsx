@@ -34,7 +34,7 @@ export function Hero() {
         className="pointer-events-none absolute left-1/2 top-0 h-px w-[40rem] max-w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-gold-400/60 to-transparent"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-28 lg:px-20">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pt-28 lg:px-12 xl:px-16">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

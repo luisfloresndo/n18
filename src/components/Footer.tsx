@@ -46,7 +46,7 @@ export function Footer() {
       <div className="absolute inset-0 z-20 bg-ink [mask-image:radial-gradient(ellipse_at_center,transparent_10%,#000_80%)]" />
       <Boxes />
 
-      <div className="relative z-30 mx-auto max-w-7xl px-6 py-20 lg:px-20">
+      <div className="relative z-30 mx-auto max-w-[1440px] px-6 py-20 lg:px-12 xl:px-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr]">
           {/* Marca */}
           <AnimatedContainer delay={0.1}>

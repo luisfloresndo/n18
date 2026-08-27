@@ -45,7 +45,7 @@ export function Proceso() {
         </ContainerScroll>
 
         {/* Pasos */}
-        <div className="mx-auto max-w-7xl px-6 pb-32 lg:px-20">
+        <div className="mx-auto max-w-[1440px] px-6 pb-32 lg:px-12 xl:px-16">
           <div className="grid gap-px overflow-hidden rounded-sm border border-gold-400/15 md:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s, i) => (
               <BlurFade
