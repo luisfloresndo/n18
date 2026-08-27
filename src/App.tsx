@@ -7,10 +7,10 @@ import { GoldCursor } from '@/components/GoldCursor'
 import { ScrollProgress } from '@/components/motion/ScrollProgress'
 import { WhatsAppBubble } from '@/components/motion/WhatsAppBubble'
 import { Marquee } from '@/components/motion/Marquee'
-import { PhotoDivider } from '@/components/motion/PhotoDivider'
 import { Hero } from '@/sections/Hero'
 import { QuienesSomos } from '@/sections/QuienesSomos'
 import { Credibilidad } from '@/sections/Credibilidad'
+import { FirmaReveal } from '@/sections/FirmaReveal'
 import { StatementScrolly } from '@/sections/StatementScrolly'
 import { Servicios } from '@/sections/Servicios'
 import { ProcesoPineado } from '@/sections/ProcesoPineado'
@@ -52,7 +52,7 @@ function App() {
         <QuienesSomos />
         <Marquee items={MARQUEE} />
         <Credibilidad />
-        <PhotoDivider src="/images/seal-macro.webp" alt="Sello notarial dorado" caption="Fe pública · Notaría No. 18" height="62vh" />
+        <FirmaReveal />
         <StatementScrolly />
         <Servicios />
         <ProcesoPineado />
